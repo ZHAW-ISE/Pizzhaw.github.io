@@ -31,7 +31,17 @@ ninja.data = [{
           title: 'Launch of the ZHAW CTF Team Website',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/pizzhaw.github.io/news/2025-12-24-Launch/";
+              window.location.href = "/pizzhaw.github.io/news/2025-11-22-Launch/";
+            },},{id: "news-new-swag-available",
+          title: 'New Swag Available!',
+          description: "Exciting new swag for ZHAW CTF team members",
+          section: "News",handler: () => {
+              window.location.href = "/pizzhaw.github.io/news/2025-11-23-Swag/";
+            },},{id: "news-sponsors-wanted",
+          title: 'Sponsors Wanted!',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/pizzhaw.github.io/news/2025-11-24-Sponsors/";
             },},{
         id: 'social-discord',
         title: 'Discord',
