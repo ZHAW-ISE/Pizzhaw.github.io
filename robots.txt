@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://pizzhaw.github.io/al-folio/sitemap.xml
+Sitemap: https://pizzhaw.github.io/sitemap.xml
