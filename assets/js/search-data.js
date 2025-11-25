@@ -7,14 +7,14 @@ ninja.data = [{
     title: "about",
     section: "Navigation",
     handler: () => {
-      window.location.href = "/pizzhaw.github.io/";
+      window.location.href = "/";
     },
   },{id: "nav-blog",
           title: "blog",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/pizzhaw.github.io/blog/";
+            window.location.href = "/blog/";
           },
         },{id: "post-ctf-write-up-template",
         
@@ -24,24 +24,24 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/pizzhaw.github.io/blog/2025/WriteUpTemplate/";
+            window.location.href = "/blog/2025/WriteUpTemplate/";
           
         },
       },{id: "news-launch-of-the-zhaw-ctf-team-website",
           title: 'Launch of the ZHAW CTF Team Website',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/pizzhaw.github.io/news/2025-11-22-Launch/";
+              window.location.href = "/news/2025-11-22-Launch/";
             },},{id: "news-new-swag-available",
           title: 'New Swag Available!',
           description: "Exciting new swag for ZHAW CTF team members",
           section: "News",handler: () => {
-              window.location.href = "/pizzhaw.github.io/news/2025-11-23-Swag/";
+              window.location.href = "/news/2025-11-23-Swag/";
             },},{id: "news-sponsors-wanted",
           title: 'Sponsors Wanted!',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/pizzhaw.github.io/news/2025-11-24-Sponsors/";
+              window.location.href = "/news/2025-11-24-Sponsors/";
             },},{
         id: 'social-discord',
         title: 'Discord',
