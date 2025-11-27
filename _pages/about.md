@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Welcome to the ZHAW CTF Team "Pizzhaw"
+subtitle: Welcome to the ZHAW CTF Team "Pepperoni-Pwners"
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page

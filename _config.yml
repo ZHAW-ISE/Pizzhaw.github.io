@@ -2,23 +2,23 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Pizzhaw # the website title (if blank, full name will be used instead)
-first_name: Pizzhaw
+title: Pepperoni-Pwners # the website title (if blank, full name will be used instead)
+first_name: Pepperoni
 middle_name:
-last_name:
+last_name: Pwners
 contact_note: >
   Join us on Discord and stay updated with the latest news!
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Welcome to the official website of Pizzhaw. We are dedicated to sharing knowledge and fostering a 
+  Welcome to the official website of Pepperoni-Pwners. We are dedicated to sharing knowledge and fostering a 
   vibrant community in the field of cybersecurity. Explore our projects, publications, and join our 
   Discord community to stay connected!
 footer_text: >
-  Pizzhaw. All rights reserved.
+  Pepperoni-Pwners. All rights reserved.
 keywords: ctf, zhaw # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🍕 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://pizzhaw.ch/ # the base hostname & protocol for your site
+url: https://pizzapwn.tech/ # the base hostname & protocol for your site
 baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: /impressum # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
