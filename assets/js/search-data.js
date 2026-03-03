@@ -16,7 +16,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-ctf-write-up-template",
+        },{id: "post-ehax-ctf-2026-borderline-personality-web",
+        
+          title: "EHAX CTF 2026 - Borderline Personality (Web)",
+        
+        description: "How the &quot;Borderline Personality&quot; challenge was solved at the EHAX CTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/EHAX-CTF-Borderline-Personality/";
+          
+        },
+      },{id: "post-ctf-write-up-template",
         
           title: "CTF Write-Up Template",
         
