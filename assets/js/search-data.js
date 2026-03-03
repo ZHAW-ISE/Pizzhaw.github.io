@@ -27,11 +27,11 @@ ninja.data = [{
             window.location.href = "/blog/2026/EHAX-CTF-Borderline-Personality/";
           
         },
-      },{id: "post-ehax-ctf-2026-double-shop-pwn",
+      },{id: "post-srdnlen-ctf-2026-double-shop-pwn",
         
-          title: "EHAX CTF 2026 - Double Shop (PWN)",
+          title: "Srdnlen CTF 2026 - Double Shop (PWN)",
         
-        description: "How the &quot;Double Shop&quot; challenge was solved at the EHAX CTF 2026 event.",
+        description: "How the &quot;Double Shop&quot; challenge was solved at the Srdnlen CTF 2026 Quals event.",
         section: "Posts",
         handler: () => {
           
