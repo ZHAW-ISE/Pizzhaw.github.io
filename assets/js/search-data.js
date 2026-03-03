@@ -27,6 +27,39 @@ ninja.data = [{
             window.location.href = "/blog/2026/EHAX-CTF-Borderline-Personality/";
           
         },
+      },{id: "post-ehax-ctf-2026-double-shop-pwn",
+        
+          title: "EHAX CTF 2026 - Double Shop (PWN)",
+        
+        description: "How the &quot;Double Shop&quot; challenge was solved at the EHAX CTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/SrdnlenCTF2026-Nevos/";
+          
+        },
+      },{id: "post-ehax-ctf-2026-womp-womp-pwn",
+        
+          title: "EHAX CTF 2026 - Womp Womp (PWN)",
+        
+        description: "How the &quot;Womp Womp&quot; challenge was solved at the EHAX CTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/EHAXCTF2026-Nevos/";
+          
+        },
+      },{id: "post-univsthreats-26-quals-ctf-nightmare-customer-web",
+        
+          title: "UniVsThreats 26 Quals CTF - Nightmare Customer (Web)",
+        
+        description: "How the &quot;Nightmare Customer&quot; challenge was solved at the UVT CTF event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/UniVsThreats26-Nevos/";
+          
+        },
       },{id: "post-ctf-write-up-template",
         
           title: "CTF Write-Up Template",
