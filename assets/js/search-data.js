@@ -27,9 +27,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/ApoorvCTF2026-Days-of-Future-Past/";
           
         },
-      },{id: "post-apoorv-ctf-2026-routine-checks",
+      },{id: "post-apoorv-ctf-2026-routine-checks-forensics",
         
-          title: "Apoorv CTF 2026 - Routine Checks",
+          title: "Apoorv CTF 2026 - Routine Checks (Forensics)",
         
         description: "Extracting a hidden flag from a JPEG image concealed inside a PCAP capture using Wireshark and steghide",
         section: "Posts",
