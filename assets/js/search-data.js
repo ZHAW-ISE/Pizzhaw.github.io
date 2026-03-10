@@ -16,7 +16,40 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-ehax-ctf-2026-borderline-personality-web",
+        },{id: "post-apoorv-ctf-2026-routine-checks",
+        
+          title: "Apoorv CTF 2026 - Routine Checks",
+        
+        description: "Extracting a hidden flag from a JPEG image concealed inside a PCAP capture using Wireshark and steghide",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ApoorvCTF-Nevos/";
+          
+        },
+      },{id: "post-cryptonite-ctf-2026-mustard-and-mangoes-steganography",
+        
+          title: "CryptoNite CTF 2026 - Mustard and Mangoes (Steganography)",
+        
+        description: "Recovering a hidden flag from a PNG with a tampered IHDR height, encoded as 6s and 7s in a text file",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/CryptoNiteCTF-Nevos/";
+          
+        },
+      },{id: "post-ara-ctf-7-0-ended-of-justify-lylera-secret-web",
+        
+          title: "ARA CTF 7.0 - Ended of Justify Lylera Secret (WEB)",
+        
+        description: "Exploiting an EJS Server-Side Template Injection behind a heavy blacklist.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ARACTF7.0-Nevos/";
+          
+        },
+      },{id: "post-ehax-ctf-2026-borderline-personality-web",
         
           title: "EHAX CTF 2026 - Borderline Personality (Web)",
         
@@ -27,9 +60,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/EHAX-CTF-Borderline-Personality/";
           
         },
-      },{id: "post-srdnlen-ctf-2026-double-shop-pwn",
+      },{id: "post-srdnlen-ctf-2026-double-shop-web",
         
-          title: "Srdnlen CTF 2026 - Double Shop (PWN)",
+          title: "Srdnlen CTF 2026 - Double Shop (WEB)",
         
         description: "How the &quot;Double Shop&quot; challenge was solved at the Srdnlen CTF 2026 Quals event.",
         section: "Posts",
