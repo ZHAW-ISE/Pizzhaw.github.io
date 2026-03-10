@@ -16,7 +16,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-apoorv-ctf-2026-routine-checks",
+        },{id: "post-apoorvctf-2026-days-of-future-past-web",
+        
+          title: "ApoorvCTF 2026 - Days of Future Past (Web)",
+        
+        description: "How the &quot;Days of Future Past&quot; challenge was solved at the ApoorvCTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ApoorvCTF2026-Days-of-Future-Past/";
+          
+        },
+      },{id: "post-apoorv-ctf-2026-routine-checks",
         
           title: "Apoorv CTF 2026 - Routine Checks",
         
