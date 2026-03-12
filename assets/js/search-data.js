@@ -9,7 +9,14 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
+  },{id: "nav-news",
+          title: "news",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/news/";
+          },
+        },{id: "nav-blog",
           title: "blog",
           description: "",
           section: "Navigation",
@@ -117,19 +124,29 @@ ninja.data = [{
         },
       },{id: "news-launch-of-the-zhaw-ctf-team-website",
           title: 'Launch of the ZHAW CTF Team Website',
-          description: "",
+          description: "We are excited to announce the launch of our new website for the ZHAW Capture the Flag (CTF) Team, providing updates, events, and resources for cybersecurity enthusiasts at ZHAW.",
           section: "News",handler: () => {
               window.location.href = "/news/2025-11-22-Launch/";
             },},{id: "news-new-swag-available",
           title: 'New Swag Available!',
-          description: "Exciting new swag for ZHAW CTF team members",
+          description: "Exciting new swag for ZHAW CTF team members. Check out our latest collection of coffee mugs, sponsored by the Institute of Computer Science at ZHAW.",
           section: "News",handler: () => {
               window.location.href = "/news/2025-11-23-Swag/";
             },},{id: "news-sponsors-wanted",
           title: 'Sponsors Wanted!',
-          description: "",
+          description: "We are looking for sponsors to support our ZHAW CTF Team as we prepare for upcoming competitions and events. Sponsorships help us cover costs for event participation, equipment, training resources, and team swag.",
           section: "News",handler: () => {
               window.location.href = "/news/2025-11-24-Sponsors/";
+            },},{id: "news-master-of-engineering-ethical-hacking-course",
+          title: 'Master of Engineering - Ethical Hacking Course',
+          description: "Our Master of Engineering program now includes a comprehensive Ethical Hacking course, designed to equip students with the skills and knowledge needed to identify and mitigate cybersecurity threats effectively.",
+          section: "News",handler: () => {
+              window.location.href = "/news/2026-12-03-Ethical-Hacking-Course/";
+            },},{id: "news-pizza-hacking-night-spring-2026-edition",
+          title: 'Pizza Hacking Night - Spring 2026 Edition',
+          description: "Join us for an evening of CTF challenges, expert talks, networking, and free pizza.",
+          section: "News",handler: () => {
+              window.location.href = "/news/2026-12-03-Pizza-Hacking-Night-Spring26/";
             },},{
         id: 'social-discord',
         title: 'Discord',
