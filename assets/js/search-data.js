@@ -137,8 +137,8 @@ ninja.data = [{
           description: "We are looking for sponsors to support our ZHAW CTF Team as we prepare for upcoming competitions and events. Sponsorships help us cover costs for event participation, equipment, training resources, and team swag.",
           section: "News",handler: () => {
               window.location.href = "/news/2025-11-24-Sponsors/";
-            },},{id: "news-master-of-engineering-ethical-hacking-course",
-          title: 'Master of Engineering - Ethical Hacking Course',
+            },},{id: "news-master-of-science-in-engineering-ethical-hacking-course",
+          title: 'Master of Science in Engineering - Ethical Hacking Course',
           description: "Our Master of Engineering program now includes a comprehensive Ethical Hacking course, designed to equip students with the skills and knowledge needed to identify and mitigate cybersecurity threats effectively.",
           section: "News",handler: () => {
               window.location.href = "/news/2026-12-03-Ethical-Hacking-Course/";
