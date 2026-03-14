@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-apoorvctf-2026-days-of-future-past-web",
+        },{id: "post-utctf-2026-hour-of-joy-pwn",
+        
+          title: "UTCTF 2026 - Hour of Joy (PWN)",
+        
+        description: "Exploiting a format string vulnerability to leak a stack variable and bypass a secret code check.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/UTCTF2026-hour-of-joy-Nevos/";
+          
+        },
+      },{id: "post-apoorvctf-2026-days-of-future-past-web",
         
           title: "ApoorvCTF 2026 - Days of Future Past (Web)",
         
