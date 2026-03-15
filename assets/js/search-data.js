@@ -34,6 +34,17 @@ ninja.data = [{
             window.location.href = "/blog/2026/UTCTF2026-hour-of-joy-Nevos/";
           
         },
+      },{id: "post-utctf-2026-half-awake-forensics",
+        
+          title: "UTCTF 2026 - Half Awake (Forensics)",
+        
+        description: "How the &quot;Half Awake&quot; challenge was solved at the UTCTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/UTCTF2026-Half-Awake/";
+          
+        },
       },{id: "post-apoorvctf-2026-days-of-future-past-web",
         
           title: "ApoorvCTF 2026 - Days of Future Past (Web)",
