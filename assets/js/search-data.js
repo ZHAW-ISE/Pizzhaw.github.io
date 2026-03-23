@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-utctf-2026-hour-of-joy-pwn",
+        },{id: "post-redfox-ctf-2026-magni-39-s-oversight-forensics",
+        
+          title: "Redfox CTF 2026 - Magni&#39;s Oversight (Forensics)",
+        
+        description: "How the &quot;Magni&#39;s Oversight&quot; challenge was solved at the Redfox CTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Redfox-CTF-2026-Magnis-Oversight/";
+          
+        },
+      },{id: "post-utctf-2026-hour-of-joy-pwn",
         
           title: "UTCTF 2026 - Hour of Joy (PWN)",
         
