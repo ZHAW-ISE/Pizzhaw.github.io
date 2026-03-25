@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-redfox-ctf-2026-magni-39-s-oversight-forensics",
+        },{id: "post-aitu-ctf-2026-quals-fast-amp-foodious-web",
+        
+          title: "AITU CTF 2026 Quals - Fast &amp; Foodious (Web)",
+        
+        description: "Privilege escalation and skip of a security test",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/AITU-CTF-2026-Fast-and-Foodious/";
+          
+        },
+      },{id: "post-redfox-ctf-2026-magni-39-s-oversight-forensics",
         
           title: "Redfox CTF 2026 - Magni&#39;s Oversight (Forensics)",
         
