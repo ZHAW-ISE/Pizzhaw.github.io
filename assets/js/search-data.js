@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-aitu-ctf-2026-quals-fast-amp-foodious-web",
+        },{id: "post-texsaw-2026-return-to-sender-pwn",
+        
+          title: "TexSAW 2026 - Return to Sender (PWN)",
+        
+        description: "Privilege escalation and skip of a security test",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/TexSAW-Return-to-Sender/";
+          
+        },
+      },{id: "post-aitu-ctf-2026-quals-fast-amp-foodious-web",
         
           title: "AITU CTF 2026 Quals - Fast &amp; Foodious (Web)",
         

