@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-texsaw-2026-return-to-sender-pwn",
+        },{id: "post-pizza-hacking-night-spring-2026-on-site-impressions-and-challenge-writeup-by-nevos",
+        
+          title: "Pizza Hacking Night Spring 2026 - On-site Impressions and Challenge Writeup by Nevos...",
+        
+        description: "Extracting a flag from ZIP metadata using compression ratios instead of breaking encryption",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/PizzaHackingNightFS2026-Compress-Me-Baby/";
+          
+        },
+      },{id: "post-texsaw-2026-return-to-sender-pwn",
         
           title: "TexSAW 2026 - Return to Sender (PWN)",
         
