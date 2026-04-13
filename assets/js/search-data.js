@@ -34,6 +34,28 @@ ninja.data = [{
             window.location.href = "/blog/2026/PizzaHackingNightFS2026-Compress-Me-Baby/";
           
         },
+      },{id: "post-dawgctf-2026-osint-challenges",
+        
+          title: "DawgCTF 2026 - OSINT Challenges",
+        
+        description: "How multiple OSINT challenges were solved at the DawgCTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/DawgCTF-2026-OSINT/";
+          
+        },
+      },{id: "post-solving-mcronalds-really-secure-application-and-haj-in-the-middle-at-pizza-hacking-night",
+        
+          title: "Solving McRonalds, really-secure-application, and haj-in-the-middle at Pizza Hacking Night",
+        
+        description: "On-site event report and write-ups of solved challenges.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Pizza-Hacking-Night-alohomora/";
+          
+        },
       },{id: "post-texsaw-2026-return-to-sender-pwn",
         
           title: "TexSAW 2026 - Return to Sender (PWN)",
