@@ -202,6 +202,11 @@ ninja.data = [{
           description: "Join us for an evening of CTF challenges, expert talks, networking, and free pizza.",
           section: "News",handler: () => {
               window.location.href = "/news/2026-12-03-Pizza-Hacking-Night-Spring26/";
+            },},{id: "news-impressions-pizza-hacking-night-spring-2026-edition",
+          title: 'Impressions Pizza Hacking Night - Spring 2026 Edition',
+          description: "On April 10th, 2026, the Spring edition of the Pizza Hacking Night took place at the University of Applied Sciences in Winterthur. The event was a great success, with many participants coming together to enjoy delicious pizza and engage in fun hacking activities. The evening was filled with laughter, creativity, and a sense of community as attendees shared their love for both pizza and technology. It was a fantastic opportunity for students and professionals alike to connect and collaborate in a relaxed and enjoyable setting.",
+          section: "News",handler: () => {
+              window.location.href = "/news/2026-13-04-Impressions-PHN-Spring26/";
             },},{
         id: 'social-discord',
         title: 'Discord',
