@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-squ1rrel-ctf-2026-squ1rrelmail-web",
+        },{id: "post-wreckctf-2026-rev-pipeline",
+        
+          title: "WreckCTF 2026 - rev/pipeline",
+        
+        description: "Inversion of various Python functions",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/WreckCTF-2026-pipeline/";
+          
+        },
+      },{id: "post-squ1rrel-ctf-2026-squ1rrelmail-web",
         
           title: "squ1rrel CTF 2026 - squ1rrelmail (Web)",
         
