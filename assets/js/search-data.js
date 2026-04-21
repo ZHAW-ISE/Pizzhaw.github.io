@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-pizza-hacking-night-spring-2026-on-site-impressions-and-challenge-writeup-by-nevos",
+        },{id: "post-squ1rrel-ctf-2026-squ1rrelmail-web",
+        
+          title: "squ1rrel CTF 2026 - squ1rrelmail (Web)",
+        
+        description: "How the &quot;squ1rrelmail&quot; challenge was solved at the squ1rrel CTF 2026 event.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/squ1rrel-CTF-2026-squ1rrelmail/";
+          
+        },
+      },{id: "post-pizza-hacking-night-spring-2026-on-site-impressions-and-challenge-writeup-by-nevos",
         
           title: "Pizza Hacking Night Spring 2026 - On-site Impressions and Challenge Writeup by Nevos...",
         
