@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sekai CTF - 6-7 Puzzle Quiz
+title: Sekai CTF - 6-7 Puzzle Quiz (MISC)
 date: 2026-06-29
 description: Solving problems leads to a secret one
 tags: writeups misc
