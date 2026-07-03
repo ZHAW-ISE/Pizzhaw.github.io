@@ -23,9 +23,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-v1t-ctf-2026-quack-cia",
+        },{id: "post-v1t-ctf-2026-quack-cia-osint",
         
-          title: "V1t CTF 2026 - Quack CIA",
+          title: "V1t CTF 2026 - Quack CIA (OSINT)",
         
         description: "OSINT leading to VIM undo file",
         section: "Posts",
@@ -34,9 +34,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/V1tCTF-Quack-CIA/";
           
         },
-      },{id: "post-sekai-ctf-6-7-puzzle-quiz",
+      },{id: "post-sekai-ctf-6-7-puzzle-quiz-misc",
         
-          title: "Sekai CTF - 6-7 Puzzle Quiz",
+          title: "Sekai CTF - 6-7 Puzzle Quiz (MISC)",
         
         description: "Solving problems leads to a secret one",
         section: "Posts",
@@ -45,9 +45,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/Sekai-CTF-6-7-Puzzle-Hunt/";
           
         },
-      },{id: "post-riffhack-ghostbusters-template-possession",
+      },{id: "post-riffhack-ghostbusters-template-possession-web",
         
-          title: "RIFFHACK - Ghostbusters Template Possession",
+          title: "RIFFHACK - Ghostbusters Template Possession (Web)",
         
         description: "Template injection in a web page",
         section: "Posts",
