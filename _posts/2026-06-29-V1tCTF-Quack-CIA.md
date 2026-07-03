@@ -20,8 +20,8 @@ author: "Guillaume"
 ## Initial Analysis
 
 The Youtube video shows someone hacking a (most likely) fake CIA website using a python script.
-
-![yt-video.png](../assets/img/posts/2026-06-30-V1tCTF-Quack-CIA/yt-video.png)
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-06-30-V1tCTF-Quack-CIA/yt-video.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
 
 ## Fining the GitHub repository
 

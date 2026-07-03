@@ -27,23 +27,30 @@ I started by using a solver to solve the puzzles because they would usualy requi
 Here are the solved puzzles:
 
 ## Tapa
-![tapa](../assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/tapa.png)
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/tapa.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
 
 ## Nurikabe
-![nurikabe](../assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/nurikabe.png)
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/nurikabe.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
+
 
 ## Fillomino
-![fillomino](../assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/fillomino.png)
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/fillomino.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
 
 ## Shikaku
-![shikaku](../assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/shikaku.png)
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/shikaku.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
 
 ## Scyscrapers
-![scyscrapers](../assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/scyscrapers.png)
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/scyscrapers.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
 
 ## Kakuro
 I actually solved that one manually (not on the first try I must admit) because it looked fun and faster to solve than the other ones.
-![kakuro](../assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/kakuro.png)
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-06-29-Sekai-CTF-6-7-Puzzle-Hunt/kakuro.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
 
 
 # The last puzzle
