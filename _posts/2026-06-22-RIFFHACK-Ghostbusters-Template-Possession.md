@@ -3,7 +3,7 @@ layout: post
 title: RIFFHACK - Ghostbusters Template Possession (Web)
 date: 2026-06-22
 description: Template injection in a web page
-tags: writeups python web template
+tags: writeups python web template riffhack
 categories: writeups web
 author: "Guillaume"
 ---

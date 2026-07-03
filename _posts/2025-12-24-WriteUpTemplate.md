@@ -4,7 +4,7 @@ title: CTF Write-Up Template
 date: 2025-11-24 00:01:00
 description: How to structure a clear and effective CTF write-up
 tags: template writeups
-categories: writeups
+categories: writeups templates
 pseudocode: false
 ---
 
@@ -27,9 +27,10 @@ layout: post
 title: ADD TITLE HERE
 date: 2025-11-24 00:01:00
 description: ADD A SHORT DESCRIPTION OF THE WRITE-UP HERE
-tags: writeups <ADD_CATEGORY_TAG_HERE> <ADD_CTF_NAME_TAG_HERE>
-categories: writeups <ADD_CATEGORY_HERE>
+tags: writeups <ADD_CATEGORY_TAG_HERE> <ADD_CTF_NAME_TAG_HERE> <YOUR_NAME_TAG_HERE>
+categories: writeups <ADD_CATEGORY_TAG_HERE>
 author: YOUR_NAME_HERE
+thumbnail: <OPTIONAL_THUMBNAIL_IMAGE_URL>
 ---
 ```
 
@@ -53,6 +54,35 @@ author: YOUR_NAME_HERE
   - **Important:** Do not share flags publicly if the CTF rules prohibit it or the event is still running.
   - Flag: `flag{example_flag_here}` with a screenshot of the flag in the terminal or application output.
 - Conclusion: Summarize what you learned from the challenge and any tips for others attempting it.
+
+## Important:
+
+When using figures/images/screenshots, ensure they are clear and relevant. Use the following Markdown syntax to include images:
+
+```markdown
+{% raw %}
+{% include figure.liquid loading="eager" path="assets/img/posts/2026-04-11-compress-me-baby/finding_flag.png"
+class="img-fluid rounded z-depth-1" max_width="500px" zoomable=true%}
+{% endraw %}
+```
+
+When using code snippets, ensure they are properly formatted and readable. Use triple backticks for code blocks:
+
+````markdown
+```bash
+# Example command
+ls -la
+```
+````
+
+I case you need to use double brackets in your code snippet, you can escape them with a the `{{ "{%" }} raw %}` and `{{ "{%" }} endraw %}` tags. For example, the following code snippet will render correctly:
+
+```yaml
+{{ "{%" }} raw %}{{ "{{" }} 1 + 2 }}{{ "{%" }} endraw %}
+# Otherwise the result will be rendered as `3` instead of `{% raw %}{{ 1 + 2 }}{% endraw %}`.
+```
+
+Always test your write-up locally before publishing to ensure that all formatting, images, and code snippets render correctly.
 
 ## Examples Writeups:
 
